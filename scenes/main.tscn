@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbwmij5ypy37o"]
+
+[ext_resource type="PackedScene" uid="uid://lqyhvay3hse6" path="res://scenes/Player/Player.tscn" id="1_fg2vl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7ktsg"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_skf6d"]
+sky_material = SubResource("ProceduralSkyMaterial_7ktsg")
+
+[sub_resource type="Environment" id="Environment_1mfyw"]
+background_mode = 2
+sky = SubResource("Sky_skf6d")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1mfyw")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_fg2vl")]
+
+[node name="blockout" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="floor" type="CSGBox3D" parent="blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+size = Vector3(50, 10, 50)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.5, 0)
+size = Vector3(1, 5, 12)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="blockout"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2, 2.5, -6)
+size = Vector3(1, 5, 12)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="blockout"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -8, 2.5, 0)
+size = Vector3(1, 5, 12)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="blockout"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -2, 2.5, 6)
+size = Vector3(1, 5, 12)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="blockout"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, 0)
+size = Vector3(12, 1, 12)
