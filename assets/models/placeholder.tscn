@@ -160,7 +160,7 @@ _data = {
 [node name="placeholder" type="Node3D"]
 
 [node name="armature" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.854338, 0.0263708)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.854338, 0.0263708)
 
 [node name="skeleton" type="Skeleton3D" parent="armature"]
 bones/0/name = "Bone"

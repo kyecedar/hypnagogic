@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lqyhvay3hse6"]
+[gd_scene load_steps=5 format=3 uid="uid://lqyhvay3hse6"]
 
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_nespq"]
 [ext_resource type="PackedScene" uid="uid://xjvgnotpjofy" path="res://assets/models/placeholder.tscn" id="2_y6nud"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_mxbpr"]
 radius = 0.25
 height = 1.4
+
+[sub_resource type="BoxMesh" id="BoxMesh_sjttn"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_nespq")
@@ -34,4 +37,6 @@ target_position = Vector3(0, 0, -1.4)
 visible = false
 target_position = Vector3(0, 0, -15)
 
-[node name="inventory" type="Node" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0.8)
+mesh = SubResource("BoxMesh_sjttn")

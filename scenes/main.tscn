@@ -25,6 +25,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_fg2vl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
 
 [node name="blockout" type="CSGCombiner3D" parent="."]
 use_collision = true
@@ -51,4 +52,5 @@ size = Vector3(1, 5, 12)
 
 [node name="CSGBox3D5" type="CSGBox3D" parent="blockout"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 5, 0)
+visible = false
 size = Vector3(12, 1, 12)

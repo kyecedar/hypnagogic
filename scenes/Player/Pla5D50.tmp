@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://lqyhvay3hse6"]
+[gd_scene load_steps=5 format=3 uid="uid://lqyhvay3hse6"]
 
 [ext_resource type="Script" path="res://scenes/Player/Player.gd" id="1_nespq"]
 [ext_resource type="PackedScene" uid="uid://xjvgnotpjofy" path="res://assets/models/placeholder.tscn" id="2_y6nud"]
@@ -7,31 +7,28 @@
 radius = 0.25
 height = 1.4
 
+[sub_resource type="BoxMesh" id="BoxMesh_sjttn"]
+size = Vector3(0.1, 0.1, 0.1)
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_nespq")
 
 [node name="collision" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
 shape = SubResource("CapsuleShape3D_mxbpr")
 
 [node name="placeholder" parent="." instance=ExtResource("2_y6nud")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8, 0)
 
 [node name="neck" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
 
 [node name="head" type="Node3D" parent="neck"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, -0.05)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.1)
 
 [node name="camera" type="Camera3D" parent="neck/head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0999999, 0)
+transform = Transform3D(-1, 0, -8.9407e-08, 0, 1, 0, 8.9407e-08, 0, -1, 0, 0.0999999, 0)
 current = true
 
-[node name="reachray" type="RayCast3D" parent="neck/head/camera"]
-target_position = Vector3(0, 0, -1.4)
-
-[node name="shootray" type="RayCast3D" parent="neck/head/camera"]
-visible = false
-target_position = Vector3(0, 0, -15)
-
-[node name="inventory" type="Node" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0.8)
+mesh = SubResource("BoxMesh_sjttn")
